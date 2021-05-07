@@ -301,6 +301,18 @@ data = [
         'country': 'United States'
     }
 ]
+logo = """
+    __  ___       __             
+   / / / (_)___ _/ /_  ___  _____
+  / /_/ / / __ `/ __ \/ _ \/ ___/
+ / __  / / /_/ / / / /  __/ /    
+/_/ ///_/\__, /_/ /_/\___/_/     
+   / /  /____/_      _____  _____
+  / /   / __ \ | /| / / _ \/ ___/
+ / /___/ /_/ / |/ |/ /  __/ /    
+/_____/\____/|__/|__/\___/_/     
+"""
+print(logo)
 
 def get_account():
     instagram_account = random.choice(data)
@@ -327,13 +339,19 @@ def game():
     person1 = random_account(instagram_account1)
     person2 = random_account(instagram_account2)
     print(person1)
+    vs = """
+     _    __    
+    | |  / /____
+    | | / / ___/
+    | |/ (__  ) 
+    |___/____(_)
+    """
+    print(vs)
     print(person2)
     game_over = False
     while game_over == False:
         no_followers1 = instagram_account1['follower_count']
-        print(f'account 1: {no_followers1}')
         no_followers2 = instagram_account2['follower_count']
-        print(f'account 2: {no_followers2}')
         guess_follower_count = str(input("Who has more followers? Type 'A' or 'B': "))
         if guess_follower_count == 'A':
             guess = instagram_account1['follower_count']  
@@ -352,7 +370,7 @@ def game():
             print(person2)
             
         elif guess!=answer:
-            print(f"it's wrong, {answer} is the answer")
+            print(f"it's wrong, {answer} is the answer, and your score is score ")
             game_over = True
 game()
  
