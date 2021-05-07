@@ -361,16 +361,25 @@ def game():
 
         answer = compare_followers(no_followers1,no_followers2) 
         if guess == answer:
-            print(f"it's correct, {guess} is the answer")
+            print(f"it's correct")
             score+=1
             person1 = person2
             print(person1)
+            print(person1)
+            vs = """
+            _    __    
+            | |  / /____
+            | | / / ___/
+            | |/ (__  ) 
+            |___/____(_)
+            """
+            print(vs)
             instagram_account2 = get_account()
             person2 = random_account(instagram_account2)
             print(person2)
             
         elif guess!=answer:
-            print(f"it's wrong, {answer} is the answer, and your score is score ")
+            print(f"it's wrong, your {score} is score ")
             game_over = True
 game()
  
