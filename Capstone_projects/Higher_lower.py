@@ -386,5 +386,5 @@ def game():
             print("Game over")
             game_over = True
 
-
+another = "Fisoh"
 game()
