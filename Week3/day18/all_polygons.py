@@ -1,13 +1,8 @@
 from turtle import Turtle, Screen
+import random
 
 
 timmy_the_turtle = Turtle()
-# for i in range(50):
-#     timmy_the_turtle.fd(10)
-#     timmy_the_turtle.penup()
-#     timmy_the_turtle.fd(10)
-#     timmy_the_turtle.pendown()
-
 angles_dict = {
     'triangle': 3,
     'square': 4,
@@ -27,13 +22,15 @@ def angles(angles_dict):
         shape_polygon = polygons[idx+polygon]
         no_sides = angles_dict[shape_polygon]
         return no_sides
-
+colours = ["CornflowerBlue", "DarkOrchid", "IndianRed", "DeepSkyBlue", "LightSeaGreen", "wheat", "SlateGray", 'SeaGreen']
 while True:
+    color = random.choice(colours)
+    timmy_the_turtle.color(color)
     no_sides = angles(angles_dict)
     angle = 360/no_sides    
-
     lines = 0
     while lines != no_sides:
+        
         timmy_the_turtle.fd(100)
         lines+=1
         timmy_the_turtle.right(angle)
@@ -43,32 +40,6 @@ while True:
     else:
         angles(angles_dict)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 my_screen = Screen()
 my_screen.exitonclick()
+
