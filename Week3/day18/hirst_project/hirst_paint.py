@@ -54,13 +54,14 @@ timmy_the_turtle.penup()
 timmy_the_turtle.setheading(225)
 timmy_the_turtle.forward(300)
 timmy_the_turtle.setheading(0)
-def painting():
-    for i in range(10):
+def painting(dot_count):
+    for i in range(1,dot_count+1 ):
         color = random.choice(color_list)
         timmy_the_turtle.penup()
         timmy_the_turtle.fd(50)
         timmy_the_turtle.dot(20,color)
-painting()
+dot_count = int(input("pls enter the count of dots: "))
+painting(dot_count)
 row = 1
 while row != 10:
     timmy_the_turtle.penup()
@@ -70,7 +71,7 @@ while row != 10:
     timmy_the_turtle.fd(500)
     timmy_the_turtle.left(180)
     row+=1
-    painting()
+    painting(dot_count)
 
 
 
