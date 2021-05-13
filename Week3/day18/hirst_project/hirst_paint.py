@@ -63,12 +63,12 @@ def painting(dot_count):
 dot_count = int(input("pls enter the count of dots: "))
 painting(dot_count)
 row = 1
-while row != 10:
+while row != dot_count:
     timmy_the_turtle.penup()
     timmy_the_turtle.left(90)
     timmy_the_turtle.fd(50)
     timmy_the_turtle.left(90)
-    timmy_the_turtle.fd(500)
+    timmy_the_turtle.fd(dot_count*50)
     timmy_the_turtle.left(180)
     row+=1
     painting(dot_count)
