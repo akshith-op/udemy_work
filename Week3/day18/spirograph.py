@@ -15,7 +15,7 @@ def spirograph(size_of_gap):
         timmy.speed('fastest')   
         timmy.circle(100)
         timmy.right(size_of_gap)
-spirograph(70)
+spirograph(1)
 
 
 my_screen = Screen()
