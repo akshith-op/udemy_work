@@ -126,8 +126,8 @@ def move():
 
         if (
             snake_body[0].xcor() > 280 
-            or snake_body[0].xcor() < -280
-            or snake_body[0].ycor() > 280
+            or snake_body[0].xcor() < -299
+            or snake_body[0].ycor() > 299
             or snake_body[0].ycor() < -280
         ):
             end_turtle.write(f"{end}", align="center", font=("Arial", 24, "normal"))
