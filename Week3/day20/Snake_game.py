@@ -116,6 +116,8 @@ def start_play():
         time.sleep(0.1)
         my_screen.update()
     end_turtle.clear()
+    generate_food()
+
 
 
 def play():
@@ -171,6 +173,5 @@ def play():
 init()
 init_snake_position()
 init_food()
-generate_food()
 play()
 my_screen.exitonclick()
