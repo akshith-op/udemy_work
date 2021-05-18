@@ -130,17 +130,15 @@ def play():
         my_screen.update()
         time.sleep(0.1)
         for idx in range(len(snake_body) - 1, 0, -1):
-            if idx % 3 == 0:
+            if idx % 2 == 0:
                 snake_body[idx].speed(0.5)
-                snake_body[idx].color("green")
-            elif idx % 3 == 1:
+                snake_body[idx].color("cyan")
+            elif idx % 2 == 1:
                 snake_body[idx].color("white")
-            else:
-                snake_body[idx].color("orange")
             new_x = snake_body[idx - 1].xcor()
             new_y = snake_body[idx - 1].ycor()
             snake_body[idx].goto(new_x, new_y)
-        snake_body[0].color("orange")
+        snake_body[0].color("red")
         snake_body[0].fd(20)
 
         for s in snake_body[1:]:
