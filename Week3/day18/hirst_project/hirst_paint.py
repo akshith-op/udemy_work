@@ -69,6 +69,7 @@ while row != dot_count:
     timmy_the_turtle.fd(50)
     timmy_the_turtle.left(90)
     timmy_the_turtle.fd(dot_count*50)
+    # timmy_the_turtle.fd(dot_count*50)
     timmy_the_turtle.left(180)
     row+=1
     painting(dot_count)

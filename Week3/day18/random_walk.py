@@ -3,8 +3,8 @@ from turtle import Turtle, Screen
 import random
 timmy_the_turtle = t.Turtle()
 t.colormode(255)
-colours = ["CornflowerBlue", "DarkOrchid", "IndianRed", "DeepSkyBlue", "LightSeaGreen", "wheat", "SlateGray", 'SeaGreen']
-color = random.choice(colours)
+# colours = ["CornflowerBlue", "DarkOrchid", "IndianRed", "DeepSkyBlue", "LightSeaGreen", "wheat", "SlateGray", 'SeaGreen']
+# color = random.choice(colours)
 directions = [0,90,180,270]
 timmy_the_turtle.speed(100)
 timmy_the_turtle.pensize(15)
