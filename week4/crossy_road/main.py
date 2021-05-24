@@ -15,11 +15,13 @@ tim.goto(x=0, y=-330)
 my_screen.listen()
 
 
-def move():
+def move_fd():
     tim.fd(30)
+def move_bk():
+    tim.bk(30)
+my_screen.onkey(move_fd, key="Up")
+my_screen.onkey(move_bk, key="Down")
 
-
-my_screen.onkey(move, key="Up")
 is_game_on = True
 t.colormode(255)
 
@@ -39,7 +41,7 @@ all_cars = []
 def car_movement():
     time.sleep(0.1)
     my_screen.update()
-    random_chance = random.randint(1, 5)
+    random_chance = random.randint(1, 4)
     if random_chance == 1:
         cars = Turtle()
         cars.shape("square")
