@@ -18,7 +18,10 @@ my_screen.listen()
 def move_fd():
     tim.fd(30)
 def move_bk():
-    tim.bk(30)
+    if tim.ycor() > -330:
+        tim.bk(30)
+    else:
+        pass
 my_screen.onkey(move_fd, key="Up")
 my_screen.onkey(move_bk, key="Down")
 
@@ -41,7 +44,7 @@ all_cars = []
 def car_movement():
     time.sleep(0.1)
     my_screen.update()
-    random_chance = random.randint(1, 4)
+    random_chance = random.randint(1, 3)
     if random_chance == 1:
         cars = Turtle()
         cars.shape("square")
@@ -49,7 +52,7 @@ def car_movement():
         cars.color(random_color())
         cars.penup()
         cars.setheading(180)
-        cars.goto(330, random.randint(-300, 300))
+        cars.goto(300, random.randint(-300, 300))
         all_cars.append(cars)
     else:
         pass
@@ -71,7 +74,7 @@ while is_game_on:
     car_movement()
     for i in all_cars:
         i.fd(speed)
-        if tim.distance(i) < 22:
+        if tim.distance(i) < 23:
             is_game_on = False
             ON_turtle = Turtle()
             ON_turtle.hideturtle()
