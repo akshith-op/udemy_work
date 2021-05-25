@@ -17,11 +17,15 @@ my_screen.listen()
 
 def move_fd():
     tim.fd(30)
+
+
 def move_bk():
     if tim.ycor() > -330:
         tim.bk(30)
     else:
         pass
+
+
 my_screen.onkey(move_fd, key="Up")
 my_screen.onkey(move_bk, key="Down")
 

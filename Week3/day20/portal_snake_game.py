@@ -26,11 +26,12 @@ def init():
 
     score_turtle.color("white")
     score_turtle.hideturtle()
-    
+
     end_turtle.color("white")
     end_turtle.hideturtle()
 
     tail_index = 0
+
 
 # Set initial position of snake
 def init_snake_position():
@@ -41,9 +42,10 @@ def init_snake_position():
         snake.goto(x=index, y=0)
         index -= 20
         snake_body.append(snake)
-    
+
     tail_index = index - 20
     return index
+
 
 def increase_size_snake(index):
     snake = Turtle()
@@ -53,23 +55,29 @@ def increase_size_snake(index):
     snake_body.append(snake)
     index -= 20
 
+
 def turn_right():
     snake_body[0].right(90)
 
+
 def turn_left():
     snake_body[0].left(90)
+
 
 def start_game():
     global motion
     motion = True
 
+
 def ignore_key_press():
     pass
+
 
 def init_food():
     food.speed("fastest")
     food.shape("circle")
     food.shapesize(0.8, 0.8)
+
 
 def generate_food():
     rand_x = random.randint(-280, 280)
@@ -77,6 +85,7 @@ def generate_food():
     food.penup()
     food.color("blue")
     food.goto(y=rand_y, x=rand_x)
+
 
 def on_key_press():
     my_screen.listen()
@@ -102,11 +111,12 @@ def on_key_press():
         my_screen.onkey(key="Right", fun=ignore_key_press)
         my_screen.onkey(key="Left", fun=ignore_key_press)
 
+
 def start_play():
     global motion
     motion = False
     end_turtle.penup()
-    end_turtle.goto(y = 100, x = 0)
+    end_turtle.goto(y=100, x=0)
     end_turtle.write(f"{startText}", align="center", font=("Arial", 24, "normal"))
     while True:
         my_screen.listen()
@@ -117,7 +127,6 @@ def start_play():
         my_screen.update()
     end_turtle.clear()
     generate_food()
-
 
 
 def play():
@@ -139,13 +148,13 @@ def play():
             new_y = snake_body[idx - 1].ycor()
             snake_body[idx].goto(new_x, new_y)
         snake_body[0].color("red")
-        snake_body[0].shape('circle')
+        snake_body[0].shape("circle")
         snake_body[0].fd(20)
 
         for s in snake_body[1:]:
             if snake_body[0].distance(s) < 8:
                 motion = False
-                end_turtle.goto(0,0)
+                end_turtle.goto(0, 0)
                 end_turtle.write(f"{end}", align="center", font=("Arial", 24, "normal"))
 
         if snake_body[0].distance(food) < 20:
@@ -154,20 +163,19 @@ def play():
             score_turtle.penup()
             score_turtle.goto(0, 260)
             score_turtle.clear()
-            score_turtle.write(f"Score: {score}", align="center", font=("Arial", 24, "normal"))
+            score_turtle.write(
+                f"Score: {score}", align="center", font=("Arial", 24, "normal")
+            )
             increase_size_snake(tail_index)
 
-        if (
-            snake_body[0].xcor() > 280 
-            or snake_body[0].xcor() < -299
-            or snake_body[0].ycor() > 299
-            or snake_body[0].ycor() < -280
-        ):
+        if snake_body[0].ycor() > 299 or snake_body[0].ycor() < -280:
             end_turtle.write(f"{end}", align="center", font=("Arial", 24, "normal"))
             motion = False
+        elif snake_body[0].xcor() > 280 or snake_body[0].xcor() < -299:
+            portal = snake_body[0].xcor()*-1
+            y = snake_body[0].ycor()
+            snake_body[0].goto(portal,y)
 
-        # if motion == False:
-        #    break
 
 init()
 init_snake_position()
