@@ -8,7 +8,6 @@ BG = "black"
 startText = 'Press "space" button to start the game'
 end = "GAME OVER"
 motion = False
-high_score = 0
 
 # Define global objects
 my_screen = Screen()
@@ -17,7 +16,7 @@ end_turtle = Turtle()
 food = Turtle()
 snake_body = []
 tail_index = 0
-score = 0
+
 # Init global objects
 def init():
     my_screen.setup(width=600, height=600)
@@ -123,7 +122,7 @@ def start_play():
 
 def play():
     global motion
-    global score
+    score = 0
     start_play()
 
     while motion:
@@ -157,6 +156,8 @@ def play():
             score_turtle.clear()
             score_turtle.write(f"Score: {score}", align="center", font=("Arial", 24, "normal"))
             increase_size_snake(tail_index)
+            snake_body[-1] = snake_body[0]
+            snake_body[0] = snake_body[-1]
 
         if (
             snake_body[0].xcor() > 280 
