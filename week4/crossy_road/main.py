@@ -2,7 +2,7 @@ from turtle import Turtle, Screen
 import turtle as t
 import random
 import time
-
+import pandas
 speed = 10
 my_screen = Screen()
 my_screen.tracer(0)

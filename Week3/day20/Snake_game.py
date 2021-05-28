@@ -107,7 +107,7 @@ def start_play():
     global motion
     motion = False
     end_turtle.penup()
-    end_turtle.goto(y = 100, x = 0)
+    end_turtle.goto(y = 100, x = 0) 
     end_turtle.write(f"{startText}", align="center", font=("Arial", 24, "normal"))
     while True:
         my_screen.listen()
