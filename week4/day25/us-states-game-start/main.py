@@ -1,6 +1,7 @@
 import pandas
 from turtle import Turtle, Screen
 import turtle as t
+import time
 
 my_screen = Screen()
 my_screen.bgpic("blank_states_img.gif")
@@ -19,7 +20,6 @@ while ans_states != total_states:
         correct_state.hideturtle()
         correct_state.penup()
         write_data = data[data.state == input_state]
-        correct_state.speed(0.5)
         correct_state.goto(int(write_data.x), int(write_data.y))
         correct_state.write(f"{input_state}", align="center", font=("Arial", 15, "normal"))
         ans_states+=1
