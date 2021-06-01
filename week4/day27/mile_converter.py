@@ -1,8 +1,8 @@
 from tkinter import *
 
 window = Tk()
-window.minsize(20, 20)
-window.config(padx=50, pady=50)
+window.title("Miles to km converter")
+window.config(padx=20, pady=20)
 
 
 def caluculate():
