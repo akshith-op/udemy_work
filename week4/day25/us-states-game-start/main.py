@@ -24,10 +24,7 @@ while ans_states != total_states:
         correct_state.write(f"{input_state}", align="center", font=("Arial", 15, "normal"))
         ans_states+=1
     
-states_to_learn = []
-for ids in states:
-    if ids not in correct_ans_state:
-        states_to_learn.append(ids)
+states_to_learn = [ids for ids in states if ids not in correct_ans_state]
 df = pandas.DataFrame(states_to_learn)
 df.to_csv("states_learn.csv")
 

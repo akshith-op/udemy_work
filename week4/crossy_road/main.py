@@ -78,7 +78,7 @@ while is_game_on:
     car_movement()
     for i in all_cars:
         i.fd(speed)
-        if tim.distance(i) < 23:
+        if tim.distance(i) < 20:
             is_game_on = False
             ON_turtle = Turtle()
             ON_turtle.hideturtle()
