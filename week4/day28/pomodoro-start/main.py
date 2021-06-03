@@ -61,7 +61,6 @@ def start_play():
     work_time = WORK_MIN * 60
     break_ = SHORT_BREAK_MIN * 60
     long_break = LONG_BREAK_MIN * 60
-    current_work = 
     if reps <= 8:
         if reps % 8 == 0:
             text.config(text="break", fg="#01fe07")
