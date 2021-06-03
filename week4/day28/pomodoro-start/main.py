@@ -16,6 +16,7 @@ _marks = "✔ ✔ ✔ ✔"
 reps = 0
 time = None
 mark5 = "    "
+h = None
 
 
 def time_reset():
@@ -35,8 +36,10 @@ def time_reset():
 
 
 def play_time():
-    window.after(1, start_play)
-
+    global h
+    h = False
+    start_play()
+    # time.config(text="Pause", command=start_play)
 
 def pause_time():
     window.after_cancel(timer)
@@ -49,10 +52,16 @@ def start_play():
     global reps
     global MARKS
     global check_marks
-    reps += 1
+    global h
+    if h != False:
+        reps += 1
+    else:
+        pass
+    h = True
     work_time = WORK_MIN * 60
     break_ = SHORT_BREAK_MIN * 60
     long_break = LONG_BREAK_MIN * 60
+    current_work = 
     if reps <= 8:
         if reps % 8 == 0:
             text.config(text="break", fg="#01fe07")
