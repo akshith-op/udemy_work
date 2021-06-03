@@ -3,7 +3,6 @@ import math
 from playsound import playsound
 
 
-# ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
 RED = "#e7305b"
 GREEN = "#9bdeac"
@@ -61,7 +60,7 @@ def start_play():
             playsound("20_min_break_done.mp3")
             count_down(long_break)
         elif reps % 2 == 0:
-            # playsound("25_min.mp3")
+            playsound("25_min.mp3")
             text.config(text="break", fg="#ffe013")
             check_marks.config(text=MARKS, bg="#0cb1f8")
             MARKS += "✔"
