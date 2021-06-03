@@ -9,23 +9,22 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 4
-SHORT_BREAK_MIN = 2
-LONG_BREAK_MIN = 3
+WORK_MIN = 25
+SHORT_BREAK_MIN = 5
+LONG_BREAK_MIN = 20
 MARKS = "✔"
 _marks = "✔ ✔ ✔ ✔"
 reps = 0
 time = None
-check_marks = None
 mark5 = "    "
 
 
 def time_reset():
     global check_marks
-    global MARKS
     global reps
-    MARKS = " "
-    check_marks.config(text=MARKS, bg="#0cb1f8")
+    global MARKS
+    MARKS = "✔"
+    check_marks.config(text="", bg="#0cb1f8")
     time.config(text="Start", command=start_play)
     reset.config(text="Reset", command=time_reset)
     time.grid(column=0, row=2)
@@ -34,8 +33,11 @@ def time_reset():
     canvas.itemconfig(timer_text, text="00:00")
     reps = 0
     text.config(text="Timer")
+
+
 def play_time():
-    window.after(1,start_play)
+    window.after(1, start_play)
+
 
 def pause_time():
     window.after_cancel(timer)
@@ -49,33 +51,33 @@ def start_play():
     global MARKS
     global check_marks
     reps += 1
-    work_time = WORK_MIN * 1
-    break_ = SHORT_BREAK_MIN * 1
-    long_break = LONG_BREAK_MIN * 1
+    work_time = WORK_MIN * 60
+    break_ = SHORT_BREAK_MIN * 60
+    long_break = LONG_BREAK_MIN * 60
     if reps <= 8:
         if reps % 8 == 0:
             text.config(text="break", fg="#01fe07")
             check_marks.config(text=_marks, bg="#0cb1f8")
-            # playsound("20_min_break_done.mp3")
+            playsound("20_min_break_done.mp3")
             count_down(long_break)
         elif reps % 2 == 0:
             # playsound("25_min.mp3")
             text.config(text="break", fg="#ffe013")
-            check_marks = Label(text=MARKS, bg="#0cb1f8")
-            MARKS += " ✔"
+            check_marks.config(text=MARKS, bg="#0cb1f8")
+            MARKS += "✔"
             check_marks.grid(column=1, row=3)
             count_down(break_)
         else:
             count_down(work_time)
             text.config(text="Work", fg="#800080")
-            # if reps != 1:
-            # playsound("5_min_done.mp3")
+            if reps != 1:
+                playsound("5_min_done.mp3")
             # playsound("tenet.mp3")
     else:
         text.config(text="Done....", fg="#00FF00")
         time.grid_forget()
         reset.grid(column=1, row=4)
-        # playsound("20min_done.mp3")
+        playsound("20min_done.mp3")
 
 
 def count_down(count):
@@ -118,6 +120,9 @@ timer_text = canvas.create_text(
     100, 130, text="00:00", fill="white", font=("FONT_NAME", 35, "bold")
 )
 canvas.grid(column=1, row=1)
+
+check_marks = Label(text="", bg="#0cb1f8")
+check_marks.grid(column=1, row=3)
 
 
 window.mainloop()
