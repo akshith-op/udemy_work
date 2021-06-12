@@ -39,7 +39,7 @@ def play_time():
     global h
     h = False
     start_play()
-    # time.config(text="Pause", command=start_play)
+
 
 def pause_time():
     window.after_cancel(timer)
@@ -130,6 +130,6 @@ canvas.grid(column=1, row=1)
 
 check_marks = Label(text="", bg="#0cb1f8")
 check_marks.grid(column=1, row=3)
-
+print("akshith")
 
 window.mainloop()

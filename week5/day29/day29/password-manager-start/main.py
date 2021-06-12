@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 import pyperclip
+import json
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def password_generator():
@@ -73,20 +74,25 @@ def password_generator():
     the_password = "".join(password)
     password_entry.insert(0, the_password)
     pyperclip.copy(password_entry.get())
-
+    
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def add_data():
-    if len(website.get()) > 0 and len(password_entry.get()) > 0:
-        is_ok = messagebox.askokcancel(
-            title=website.get(),
-            message=f"These are the details entered: \nEmail: {email.get()}\nPassword: {password_entry.get()}\nIs it ok to save?",
-        )
+    new_data = {
+        website.get():{
+            'email':email.get(),
+            'password': password_entry.get()
+            }
+    }
+    
+    if len(website.get()) > 0 and len(password_entry.get()) > 0 and len(email.get()) > 0:
+        is_ok = messagebox.askokcancel(title=website.get(),message=f"These are the details entered: \nEmail: {email.get()}\nPassword: {password_entry.get()}\nIs it ok to save?",)
         if is_ok:
-            with open("data.txt", "a") as data:
-                data.write(
-                    f"{website.get()} | {email.get()} | {password_entry.get()}\n"
-                )
+            with open("data.json", "r") as data:
+                data_file = json.load(data)
+
+            with open("data.json", "w") as data:
+                json.dump(data_file, data, indent = 4)
                 website.delete(0, END)
                 password_entry.delete(0, END)
                 website.focus()
@@ -128,7 +134,7 @@ password_entry.grid(column=1, row=3)
 # ---------------------------------------------------------------------- #
 
 generate = Button(
-    text="Generate Password", command=password_generator, highlightthickness=0, width=14
+    text="Generate Password", command= password_generator, highlightthickness=0, width=14
 )
 generate.grid(column=2, row=3)
 
