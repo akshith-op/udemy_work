@@ -1,6 +1,6 @@
 from tkinter import *
 import math
-from playsound import playsound
+import playsound
 
 
 PINK = "#e2979c"
