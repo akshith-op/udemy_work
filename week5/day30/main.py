@@ -5,10 +5,9 @@ try:
 
 except:
     with open('data123.txt', 'w') as file:
-        file.write('Money hiest is the greatest series in the world')
+        file.write('Game of Thrones is the greatest series in the world')
 else:
     print('Akshith')
 finally:
     raise SyntaxError   
-
-
+print('akshith')

@@ -8,9 +8,9 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 25
-SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 20
+WORK_MIN = 1
+SHORT_BREAK_MIN = 1
+LONG_BREAK_MIN = 1
 MARKS = "✔"
 _marks = "✔ ✔ ✔ ✔"
 reps = 0
@@ -58,9 +58,9 @@ def start_play():
     else:
         pass
     h = True
-    work_time = WORK_MIN * 60
-    break_ = SHORT_BREAK_MIN * 60
-    long_break = LONG_BREAK_MIN * 60
+    work_time = WORK_MIN * 1
+    break_ = SHORT_BREAK_MIN * 1
+    long_break = LONG_BREAK_MIN * 1
     if reps <= 8:
         if reps % 8 == 0:
             text.config(text="break", fg="#01fe07")
