@@ -98,7 +98,7 @@ while running:
     gma = False
     playerx += playerchange
     for i in range(no_enemies):
-        if enemyy[i] > 245:
+        if enemyy[i] > 243:
             gma = True
             for j in range(no_enemies):
                 enemyy[j] = 2000
@@ -107,6 +107,7 @@ while running:
             mixer.music.stop()
             g_SOUND = mixer.Sound("game_over.wav")
             g_SOUND.play()
+            state = "ready"
             playerchange = 0
             break
 
@@ -120,6 +121,7 @@ while running:
         result = is_colloid(enemyx[i], enemyy[i], bullet_x, bullet_y)
         if result == True:
             e_SOUND = mixer.Sound("explosion.mp3")
+            e_
             e_SOUND.play()
             enemyx[i] = random.randint(0, 736)
             enemyy[i] = random.randint(10, 150)
