@@ -172,9 +172,9 @@ def play():
             end_turtle.write(f"{end}", align="center", font=("Arial", 24, "normal"))
             motion = False
         elif snake_body[0].xcor() > 280 or snake_body[0].xcor() < -299:
-            portal = snake_body[0].xcor()*-1
+            portal = snake_body[0].xcor() * -1
             y = snake_body[0].ycor()
-            snake_body[0].goto(portal,y)
+            snake_body[0].goto(portal, y)
 
 
 init()

@@ -3,13 +3,20 @@ def good(N, K):
     l = []
     for i in range(N):
         for j in range(K + 1):
+            # for i in range(K + 1):
+            # for j in range(K + 1):
+            #     for j in range(K + 1):
+            #         for j in range(K + 1):
+            #             for j in range(K + 1):
+            #                 for j in range(K + 1):
+
             # for y in range(K + 1):
 
             # a = (i, j)
             print((j), h)
             l.append((j))
             h += 1
-    print(len(l))
+        print(len(l))
 
 
-good(3, 3)
+good(2, 1)

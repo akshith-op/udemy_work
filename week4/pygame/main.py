@@ -121,7 +121,6 @@ while running:
         result = is_colloid(enemyx[i], enemyy[i], bullet_x, bullet_y)
         if result == True:
             e_SOUND = mixer.Sound("explosion.mp3")
-            e_
             e_SOUND.play()
             enemyx[i] = random.randint(0, 736)
             enemyy[i] = random.randint(10, 150)

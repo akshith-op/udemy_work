@@ -23,7 +23,7 @@ print(
 def hit(array):
     hit_card = random.choice(cards)
     if hit_card == 11:
-        if sum(array) + hit_card > 11:
+        if sum(array) + hit_card > 21:
             hit_card = 1
     else:
         pass
