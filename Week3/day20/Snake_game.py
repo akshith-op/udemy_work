@@ -175,6 +175,7 @@ def play():
             or snake_body[0].ycor() > 280
             or snake_body[0].ycor() < -280
         ):
+            
             snake_body[0].left(90)
             # end_turtle.write(f"{end}", align="center", font=("Arial", 24, "normal"))
             # motion = False

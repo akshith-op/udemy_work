@@ -1,6 +1,6 @@
 from turtle import Turtle, Screen
 import turtle as t
-import colorgram
+# import colorgram
 import random
 t.colormode(255)
 
@@ -39,7 +39,6 @@ while answer == False:
         print("the color you have entered is not available")
     if bet in all_turtle_colors:
         answer = True
-    
 
 if bet:
     is_race_on = True
